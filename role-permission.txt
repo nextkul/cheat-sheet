@@ -1,0 +1,40 @@
+composer require laravel/breeze --dev
+php artisan breeze:install
+
+npm install
+npm run dev
+
+composer require spatie/laravel-permission
+config:app.php
+'providers' => [
+    // ...
+    Spatie\Permission\PermissionServiceProvider::class,
+];
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
+=======================================
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasRoles;
+
+    // ...
+}
+=============================
+ php artisan migrate
+php artisan permission:create-role writer
+php artisan permission:create-role editor
+php artisan permission:create-role admin
+php artisan permission:create-role user
+php artisan permission:create-role publisher
+==============================================
+php artisan make:model Post -m
+ php artisan make:factory --model=Post
+php artisan make:factory PostFactory --model=Post
+php artisan migrate --seed
+=================================
+php artisan tinker
+$user = App\Models\User::find(2);
+$user->assignRole("writer");

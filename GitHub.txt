@@ -1,0 +1,43 @@
+Locally set email-address (separately for each repository)
+==========================================================
+$ git config user.name  "your_name"
+$ git config user.user  "your_username"
+$ git config user.email "your_email@abc.com"
+$ git config user.password "your password"
+
+===================================================================
+Globally set email-address (only used when nothing is set locally)
+===================================================================
+$ git config --global user.name "John Doe"  
+$ git config --global github.user myusername
+$ git config --global user.email johndoe@example.com  
+$ git config --global user.password "your password"
+
+====================================================
+Then just check to make sure the change took effect
+====================================================
+$ git config --list
+====================
+create a new repository on the command line
+============================================
+git init
+git add README.md
+git commit -m "first commit"
+git status
+git branch -M main
+git remote add origin https://github.com/nextkul/Laravel-Admin-Panel.git
+git push -u origin main
+
+===================OR============================
+push an existing repository from the command line
+==================================================
+git remote add origin https://github.com/nextkul/Laravel-Admin-Panel.git
+git branch -M main
+git push -u origin main
+git push -u origin main --force
+==================================
+git change comment commit
+==================================
+git commit --amend -m "New commit message."
+
+
